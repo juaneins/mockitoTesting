@@ -4,6 +4,7 @@
 package com.packtpub.junit.recap;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
@@ -49,6 +50,11 @@ public class AssertTest {
 		Integer i = Integer.parseInt("5");
 		Integer j = Integer.valueOf("5");
 		assertSame(i, j);
+	}
+	
+	@Test
+	@Ignore("John's holiday stuff failing")
+	public void when_today_is_holiday_then_stop_alarm() {
 	}
 
 }
