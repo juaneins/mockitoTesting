@@ -1,20 +1,23 @@
 package com.packtpub.junit.recap;
 
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.anyOf;
+import static org.hamcrest.CoreMatchers.both;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.either;
+import static org.hamcrest.CoreMatchers.endsWith;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.hasItems;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.either;
-import static org.hamcrest.CoreMatchers.both;
-import static org.hamcrest.CoreMatchers.anyOf;
-import static org.hamcrest.CoreMatchers.allOf;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.hasItems;
+import org.junit.Test;;
 
 public class AssertThatTest {
 
@@ -45,6 +48,14 @@ public class AssertThatTest {
 		assertThat(salary, hasItem(500.0));
 		assertThat(salary, hasItems(500.0,50.0));
 		assertThat(salary, not(hasItem(500.3)));
+	}
+	
+	@Test
+	public void verifyStrings() {
+		String name = "John Jr Dale";
+		assertThat(name, startsWith("John"));
+		assertThat(name, endsWith("Dale"));
+		assertThat(name, containsString("Jr"));
 	}
 
 }
