@@ -13,6 +13,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static com.packtpub.junit.recap.LessThanOrEqual.lessThanOrEqual;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +57,19 @@ public class AssertThatTest {
 		assertThat(name, startsWith("John"));
 		assertThat(name, endsWith("Dale"));
 		assertThat(name, containsString("Jr"));
+	}
+	
+	@Test
+	public void lessthanOrEqualsCustomMatcher() {
+		int actualGoalScored = 2;
+		assertThat(actualGoalScored, lessThanOrEqual(2));
+		assertThat(actualGoalScored, lessThanOrEqual(4));
+		
+		double originalPI = 3.14;
+		assertThat(originalPI, lessThanOrEqual(9.00));
+		
+		String authorName = "Sujoy";
+		assertThat(authorName, lessThanOrEqual("Zachary"));
 	}
 
 }
