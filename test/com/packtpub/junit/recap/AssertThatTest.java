@@ -2,6 +2,10 @@ package com.packtpub.junit.recap;
 
 import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -9,6 +13,8 @@ import static org.hamcrest.CoreMatchers.either;
 import static org.hamcrest.CoreMatchers.both;
 import static org.hamcrest.CoreMatchers.anyOf;
 import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.hasItems;
 
 public class AssertThatTest {
 
@@ -31,6 +37,14 @@ public class AssertThatTest {
 		assertThat(marks, not(anyOf(is(0.00), is(200.00))));
 		assertThat(marks, not(allOf(is(1.00), is(100.00), is(30.00))));
 
+	}
+	
+	@Test
+	public void verifyCollectionValues() {
+		List<Double> salary = Arrays.asList(50.0,200.0,500.0);
+		assertThat(salary, hasItem(500.0));
+		assertThat(salary, hasItems(500.0,50.0));
+		assertThat(salary, not(hasItem(500.3)));
 	}
 
 }
